@@ -1,4 +1,4 @@
-abbr = {
+slangs = {
     'brb':'be right back',
     'lol':'laughing out loud',
     'idk':"I don't know",
@@ -7,7 +7,12 @@ abbr = {
     'goat':'Greatest of all time',
     'smh':'shaking my head',
     'gg':'good game',
-    'ikr':'I know, right?'
+    'ikr':'I know, right?',
+    'bet':'Ok or alright',
+    'cap':'lie',
+    'drip':'Cool style',
+    'rizz':'flirting ability',
+    'slaps':'is really good'
 }
 
 punctuations = "!$%&'()*,.:;?_"
@@ -16,11 +21,10 @@ sentence = input().split(" ")
 for i in range(len(sentence)):
     word = sentence[i].lower()
     clean_word = ''.join(char for char in word if char not in punctuations)
-    if clean_word in abbr:
+    if clean_word in slangs:
         punc = word[len(clean_word):]
-        sentence[i] = abbr[clean_word] + punc
+        sentence[i] = slangs[clean_word] + punc
        
-print()
-print("Output:"," ".join(sentence))
+print("\nMeaning:"," ".join(sentence))
 
 
