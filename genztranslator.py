@@ -26,5 +26,3 @@ for i in range(len(sentence)):
         sentence[i] = slangs[clean_word] + punc
        
 print("\nMeaning:"," ".join(sentence))
-
-
