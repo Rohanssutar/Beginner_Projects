@@ -1,4 +1,6 @@
-slangs = {
+import re
+
+slang_dict = {
     "brb":"be right back",
     "lol":"laughing out loud",
     "idk":"I don't know",
@@ -77,14 +79,10 @@ slangs = {
     "glow up":"transformation",
 }
 
-punctuations = "!$%&'()*,.:;?_"
-sentence = input().split(" ")
+words = input("Enter a sentence: ")
 
-for i in range(len(sentence)):
-    word = sentence[i].lower()
-    clean_word = ''.join(char for char in word if char not in punctuations)
-    if clean_word in slangs:
-        punc = word[len(clean_word):]
-        sentence[i] = slangs[clean_word] + punc
+for slang in sorted(slang_dict, key=len, reverse=True):
+    pattern = r'\b' + re.escape(slang) + r'\b'
+    words = re.sub(pattern, slang_dict[slang], words, flags=re.IGNORECASE)
        
-print("\nMeaning:"," ".join(sentence))
+print("\nMeaning:", words)
